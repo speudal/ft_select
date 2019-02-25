@@ -6,12 +6,15 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2018/12/25 23:27:11 by tduval           ###   ########.fr       */
+/*   Updated: 2019/01/14 21:45:38 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SELECT_H
 
 # define FT_SELECT_H
+
+# include <termcap.h>
+# include <termios.h>
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tduval <tduval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/26 19:28:15 by tduval            #+#    #+#             */
-/*   Updated: 2018/12/12 13:37:53 by tduval           ###   ########.fr       */
+/*   Updated: 2019/01/14 21:57:26 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char				*ft_strfjoin(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-void				ft_putchar(char c);
+int					ft_putchar(int c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
@@ -105,7 +105,6 @@ int					ft_factorial(int n);
 int					ft_abs(int n);
 int					ft_sqrt(int n);
 int					ft_swap(int *i, int *j);
-int					ft_sum(int *tab, size_t n);
 int					ft_printf(const char *format, ...);
 int					print_c(va_list ap, t_flags elem);
 int					print_s(va_list ap, t_flags elem);
