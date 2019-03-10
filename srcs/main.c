@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/02/25 23:57:14 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/10 20:03:29 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static int		init_term(char *term_type)
 int				main(int ac, char **av)
 {
 	int		ret;
-	int		col;
-	int		lin;
 	char	*tc;
 	char	*term_type;
 
@@ -47,8 +45,6 @@ int				main(int ac, char **av)
 	}
 	if ((ret = init_term(term_type)))
 	{
-		col = tgetnum("co");
-		lin = tgetnum("li");
 		tc = tgetstr("cl", 0);
 		tputs(tc, 1, ft_putchar);
 		return (ft_select(ac, av));
