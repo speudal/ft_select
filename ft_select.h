@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/11 01:44:08 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/11 21:54:19 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 # include <termcap.h>
 # include <termios.h>
 
-# define ESC		"\x1b"
-# define UP_ARROW	"\x1b[A"
-# define UP_DOWN	"\x1b[B"
-# define UP_RIGHT	"\x1b[C"
-# define UP_LEFT	"\x1b[D"
+# define ESC			"\x1b"
+# define UP_ARROW		"\x1b[A"
+# define DOWN_ARROW		"\x1b[B"
+# define RIGHT_ARROW	"\x1b[C"
+# define LEFT_ARROW		"\x1b[D"
 
 typedef enum		e_bool
 {

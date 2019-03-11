@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/11 01:55:41 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/11 22:22:47 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,11 @@ int				main(int ac, char **av)
 	{
 		tc = tgetstr("cl", 0);
 		tputs(tc, 1, ft_putchar);
-		return (ft_select(ac, av));
+		tc = tgetstr("vi", 0);
+		tputs(tc, 1, ft_putchar);
+		ft_select(ac, av);
+		tc = tgetstr("ve", 0);
+		tputs(tc, 1, ft_putchar);
 	}
-	ft_strdel(&term_type);
 	return (0);
 }
