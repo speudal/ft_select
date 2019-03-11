@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/02/26 00:50:24 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/11 02:01:47 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 #include <unistd.h>
 #include "ft_select.h"
 #include "libft.h"
-
-static void		del_key(char *key)
-{
-	size_t	i;
-	char	*tc;
-
-	i = 0;
-	tc = tgetstr("dc", 0);
-	while (i < ft_strlen(key))
-	{
-		tputs(tc, 1, ft_putchar);
-		i++;
-	}
-}
 
 static t_args	*new_arg(char *arg)
 {
@@ -60,22 +46,36 @@ static t_args	*init_selec(int ac, char **av)
 		{
 			if (!(ret = new_arg(av[i])))
 				return (0);
+			ret->cur = true;
+			ret->head = true;
 			origin = ret;
 		}
 		else
 		{
 			if (!(ret->next = new_arg(av[i])))
 				return (0);
+			ret->next->prev = ret;
+			ret->next->cur = false;
+			ret->next->head = false;
 			ret = ret->next;
 		}
 		i++;
 	}
+	ret->next = origin;
 	return (origin);
 }
 
 static void	print_all(t_args *list)
 {
-	while (list)
+	if (list)
+	{
+		if (list->selected == true)
+			ft_putstr("\e[7m");
+		ft_putstr(list->arg);
+		ft_putstr("\e[0m");
+		list = list->next;
+	}
+	while (list && list->head == false)
 	{
 		if (list->selected == true)
 			ft_putstr("\e[7m");
@@ -90,16 +90,22 @@ static void	print_all(t_args *list)
 int				ft_select(int ac, char **av)
 {
 	t_args	*selected;
+	char	*tc;
 	int		c;
-	char	buf[3];
+	char	buf[4];
 
 	if (ac < 2 || !(selected = init_selec(ac, av)))
 		return (0);
-	while ((c = read(0, buf, 2)) && ft_strcmp(buf, ESC))
+	while ((c = read(0, buf, 3)) && ft_strcmp(buf, ESC))
 	{
 		buf[c] = 0;
-		del_key(buf);
+		tc = tgetstr("cl", 0);
+		tputs(tc, 0, ft_putchar);
 		print_all(selected);
+		tc = tgetstr("ho", 0);
+		tputs(tc, 0, ft_putchar);
+		tc = tgetstr("hu", 0);
+		tputs(tc, 0, ft_putchar);
 		ft_putchar('\n');
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/02/26 00:33:44 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/11 01:44:08 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ typedef enum		e_bool
 typedef struct		s_args
 {
 	char			*arg;
+	t_bool			head;
+	t_bool			cur;
 	t_bool			selected;
+	struct s_args	*prev;
 	struct s_args	*next;
 }					t_args;
 
