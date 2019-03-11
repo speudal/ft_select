@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/11 02:01:47 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/11 21:34:26 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,12 @@ static void	print_all(t_args *list)
 	}
 	while (list && list->head == false)
 	{
+		ft_putchar('\t');
 		if (list->selected == true)
 			ft_putstr("\e[7m");
 		ft_putstr(list->arg);
 		ft_putstr("\e[0m");
 		list = list->next;
-		if (list)
-			ft_putchar('\t');
 	}
 }
 
