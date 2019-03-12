@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/12 01:27:52 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/12 11:21:00 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 static void		sigint_handler(int sig)
 {
-	sig = 0;
+	(void)sig;
 	ft_putstr("rip");
 }
 
