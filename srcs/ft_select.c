@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/11 23:08:25 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/12 01:27:52 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,18 +86,17 @@ static void	print_all(t_args *list)
 			ft_putstr("\e[4m");
 		if (list->selected == true)
 			ft_putstr("\e[7m");
-		ft_putstr(list->arg);
+		ft_putendl(list->arg);
 		ft_putstr("\e[0m");
 		list = list->next;
 	}
 	while (list && list->head == false)
 	{
-		ft_putchar('\t');
 		if (list->cur == true)
 			ft_putstr("\e[4m");
 		if (list->selected == true)
 			ft_putstr("\e[7m");
-		ft_putstr(list->arg);
+		ft_putendl(list->arg);
 		ft_putstr("\e[0m");
 		list = list->next;
 	}
@@ -107,7 +106,7 @@ void		use_arr(char buf[5], t_args *lst)
 {
 	t_args	*tmp;
 
-	if (ft_strequ(LEFT_ARROW, buf))
+	if (ft_strequ(UP_ARROW, buf))
 	{
 		while (lst && lst->cur != true)
 			lst = lst->next;
@@ -115,7 +114,7 @@ void		use_arr(char buf[5], t_args *lst)
 			lst->prev->cur = true;
 		lst->cur = false;
 	}
-	if (ft_strequ(RIGHT_ARROW, buf))
+	if (ft_strequ(DOWN_ARROW, buf))
 	{
 		while (lst && lst->cur != true)
 			lst = lst->next;
