@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 19:23:33 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/13 19:35:46 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,8 +151,6 @@ void		use_keys(char buf[5], t_args *lst)
 	{
 		while (lst && lst->cur != true)
 			lst = lst->next;
-		if (lst->head == true)
-			lst->next->head = true;
 		lst->selected = (lst->selected ? false : true);
 		lst->cur = false;
 		lst->next->cur = true;
@@ -167,7 +165,13 @@ void			print_selec(t_args *lst)
 	i = 0;
 	while (lst->head == false)
 		lst = lst->next;
-	while (lst && lst->next && lst->next->head == false)
+	if (lst->selected == true)
+	{
+		ft_putstr(lst->arg);
+		i = 1;
+	}
+	lst = lst->next;
+	while (lst && lst->head == false)
 	{
 		if (lst->selected == true)
 		{
@@ -191,7 +195,7 @@ int				ft_select(int ac, char **av)
 	if (ac < 2 || !(selected = init_selec(ac, av)))
 		return (0);
 	print_all(selected);
-	while ((c = read(0, buf, 4)) && ft_strcmp(buf, ESC))
+	while ((c = read(0, buf, 4)) && ft_strcmp(buf, ESC) && ft_strcmp(buf, RETURN))
 	{
 		buf[c] = 0;
 		use_keys(buf, selected);
@@ -200,6 +204,7 @@ int				ft_select(int ac, char **av)
 		print_all(selected);
 		ft_putchar('\n');
 	}
-	print_selec(selected);
+	if (ft_strequ(buf, RETURN))
+		print_selec(selected);
 	return (0);
 }
