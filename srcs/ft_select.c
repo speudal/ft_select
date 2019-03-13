@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 19:39:08 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/13 19:52:12 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ft_select.h"
 #include "libft.h"
 
-static void		sigint_handler(int sig)
+static void		sign_handler(int sig)
 {
 	char	*tc;
 	(void)sig;
@@ -28,7 +28,18 @@ static void		sigint_handler(int sig)
 
 static void		sig_handler(void)
 {
-	signal(SIGINT, sigint_handler);
+	signal(1, sign_handler);
+	signal(2, sign_handler);
+	signal(3, sign_handler);
+	signal(4, sign_handler);
+	signal(5, sign_handler);
+	signal(6, sign_handler);
+	signal(7, sign_handler);
+	signal(8, sign_handler);
+	signal(9, sign_handler);
+	signal(10, sign_handler);
+	signal(11, sign_handler);
+	signal(12, sign_handler);
 }
 
 static t_args	*new_arg(char *arg)
@@ -138,7 +149,7 @@ void		use_keys(char buf[5], t_args *lst)
 		{
 			free(lst->arg);
 			free(lst);
-			exit(0);
+			sign_handler(0);
 		}
 		while (lst && lst->next && lst->next->cur != true)
 			lst = lst->next;
