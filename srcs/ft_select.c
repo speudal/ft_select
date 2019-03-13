@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 19:35:46 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/13 19:39:08 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,18 +114,22 @@ void		use_keys(char buf[5], t_args *lst)
 	{
 		while (lst && lst->cur != true)
 			lst = lst->next;
-		if (lst->prev)
+		if (lst->prev && lst->prev != lst)
+		{
 			lst->prev->cur = true;
-		lst->cur = false;
+			lst->cur = false;
+		}
 		return ;
 	}
 	if (ft_strequ(DOWN_ARROW, buf))
 	{
 		while (lst && lst->cur != true)
 			lst = lst->next;
-		if (lst->next)
+		if (lst->next && lst->next != lst)
+		{
 			lst->next->cur = true;
-		lst->cur = false;
+			lst->cur = false;
+		}
 		return ;
 	}
 	if (ft_strequ(DELETE, buf) || ft_strequ(BACKSPACE, buf))
