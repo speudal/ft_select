@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/11 22:52:14 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/13 19:05:10 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <termcap.h>
 # include <termios.h>
 
+# define BACKSPACE		"\x7f"
 # define ESC			"\x1b"
 # define UP_ARROW		"\x1b[A"
 # define DOWN_ARROW		"\x1b[B"

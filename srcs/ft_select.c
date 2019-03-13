@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 18:35:55 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/13 19:23:33 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_args	*new_arg(char *arg)
 		free(ret);
 		return (0);
 	}
-	ret->selected = 0;
+	ret->selected = false;
 	ret->next = 0;
 	return (ret);
 }
@@ -87,26 +87,26 @@ static void	print_all(t_args *list)
 	if (list)
 	{
 		if (list->cur == true)
-			ft_putstr("\e[4m");
+			ft_putstr_fd("\e[4m", 2);
 		if (list->selected == true)
-			ft_putstr("\e[7m");
-		ft_putendl(list->arg);
-		ft_putstr("\e[0m");
+			ft_putstr_fd("\e[7m", 2);
+		ft_putendl_fd(list->arg, 2);
+		ft_putstr_fd("\e[0m", 2);
 		list = list->next;
 	}
 	while (list && list->head == false)
 	{
 		if (list->cur == true)
-			ft_putstr("\e[4m");
+			ft_putstr_fd("\e[4m", 2);
 		if (list->selected == true)
-			ft_putstr("\e[7m");
-		ft_putendl(list->arg);
-		ft_putstr("\e[0m");
+			ft_putstr_fd("\e[7m", 2);
+		ft_putendl_fd(list->arg, 2);
+		ft_putstr_fd("\e[0m", 2);
 		list = list->next;
 	}
 }
 
-void		use_arr(char buf[5], t_args *lst)
+void		use_keys(char buf[5], t_args *lst)
 {
 	t_args	*tmp;
 
@@ -117,6 +117,7 @@ void		use_arr(char buf[5], t_args *lst)
 		if (lst->prev)
 			lst->prev->cur = true;
 		lst->cur = false;
+		return ;
 	}
 	if (ft_strequ(DOWN_ARROW, buf))
 	{
@@ -125,9 +126,16 @@ void		use_arr(char buf[5], t_args *lst)
 		if (lst->next)
 			lst->next->cur = true;
 		lst->cur = false;
+		return ;
 	}
-	if (ft_strequ(DELETE, buf))
+	if (ft_strequ(DELETE, buf) || ft_strequ(BACKSPACE, buf))
 	{
+		if (lst && lst->next == lst)
+		{
+			free(lst->arg);
+			free(lst);
+			exit(0);
+		}
 		while (lst && lst->next && lst->next->cur != true)
 			lst = lst->next;
 		if (lst->next->head == true)
@@ -137,14 +145,38 @@ void		use_arr(char buf[5], t_args *lst)
 		lst->next->cur = true;
 		free(tmp->arg);
 		free(tmp);
+		return ;
 	}
 	if (buf[0] == ' ')
 	{
 		while (lst && lst->cur != true)
 			lst = lst->next;
+		if (lst->head == true)
+			lst->next->head = true;
 		lst->selected = (lst->selected ? false : true);
 		lst->cur = false;
 		lst->next->cur = true;
+		return ;
+	}
+}
+
+void			print_selec(t_args *lst)
+{
+	int		i;
+
+	i = 0;
+	while (lst->head == false)
+		lst = lst->next;
+	while (lst && lst->next && lst->next->head == false)
+	{
+		if (lst->selected == true)
+		{
+			if (i)
+				ft_putchar(' ');
+			ft_putstr(lst->arg);
+			i = 1;
+		}
+		lst = lst->next;
 	}
 }
 
@@ -162,11 +194,12 @@ int				ft_select(int ac, char **av)
 	while ((c = read(0, buf, 4)) && ft_strcmp(buf, ESC))
 	{
 		buf[c] = 0;
-		use_arr(buf, selected);
+		use_keys(buf, selected);
 		tc = tgetstr("cl", 0);
 		tputs(tc, 0, ft_putchar);
 		print_all(selected);
 		ft_putchar('\n');
 	}
+	print_selec(selected);
 	return (0);
 }
