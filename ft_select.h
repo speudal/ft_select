@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 19:32:41 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/14 18:30:10 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ typedef struct		s_args
 }					t_args;
 
 int					ft_select(int ac, char **av);
+int					inter_keys(char buf[5], t_args *lst);
 
 #endif

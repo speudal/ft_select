@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 19:52:12 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/14 18:31:01 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,62 +117,6 @@ static void	print_all(t_args *list)
 	}
 }
 
-void		use_keys(char buf[5], t_args *lst)
-{
-	t_args	*tmp;
-
-	if (ft_strequ(UP_ARROW, buf))
-	{
-		while (lst && lst->cur != true)
-			lst = lst->next;
-		if (lst->prev && lst->prev != lst)
-		{
-			lst->prev->cur = true;
-			lst->cur = false;
-		}
-		return ;
-	}
-	if (ft_strequ(DOWN_ARROW, buf))
-	{
-		while (lst && lst->cur != true)
-			lst = lst->next;
-		if (lst->next && lst->next != lst)
-		{
-			lst->next->cur = true;
-			lst->cur = false;
-		}
-		return ;
-	}
-	if (ft_strequ(DELETE, buf) || ft_strequ(BACKSPACE, buf))
-	{
-		if (lst && lst->next == lst)
-		{
-			free(lst->arg);
-			free(lst);
-			sign_handler(0);
-		}
-		while (lst && lst->next && lst->next->cur != true)
-			lst = lst->next;
-		if (lst->next->head == true)
-			lst->next->next->head = true;
-		tmp = lst->next;
-		lst->next = lst->next->next;
-		lst->next->cur = true;
-		free(tmp->arg);
-		free(tmp);
-		return ;
-	}
-	if (buf[0] == ' ')
-	{
-		while (lst && lst->cur != true)
-			lst = lst->next;
-		lst->selected = (lst->selected ? false : true);
-		lst->cur = false;
-		lst->next->cur = true;
-		return ;
-	}
-}
-
 void			print_selec(t_args *lst)
 {
 	int		i;
@@ -213,7 +157,7 @@ int				ft_select(int ac, char **av)
 	while ((c = read(0, buf, 4)) && ft_strcmp(buf, ESC) && ft_strcmp(buf, RETURN))
 	{
 		buf[c] = 0;
-		use_keys(buf, selected);
+		inter_keys(buf, selected);
 		tc = tgetstr("cl", 0);
 		tputs(tc, 0, ft_putchar);
 		print_all(selected);
