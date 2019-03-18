@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/14 18:30:10 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/18 18:38:03 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ typedef struct		s_args
 	struct s_args	*next;
 }					t_args;
 
+void				print_all(void);
+void				print_list(void);
+void				exit_properly(int a);
+void				sighandler(void);
 int					ft_select(int ac, char **av);
-int					inter_keys(char buf[5], t_args *lst);
+int					inter_keys(char buf[5]);
 
 #endif
