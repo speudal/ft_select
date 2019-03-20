@@ -6,12 +6,13 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:21:29 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:44:55 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <stdlib.h>
+#include <sys/ioctl.h>
 #include "ft_select.h"
 #include "libft.h"
 
@@ -41,12 +42,21 @@ void		exit_properly(int a)
 	free(g_lst->arg);
 	tc = tgetstr("ve", 0);
 	tputs(tc, 2, ft_putchar);
+	tc = tgetstr("te", 0);
+	tputs(tc, 2, ft_putchar);
 	exit(1);
 	(void)a;
 }
 
+static void	sigstop_case(int a)
+{
+	(void)a;
+	ioctl(2, TIOCSTI, "\x1A");
+}
+
 void	sighandler(void)
 {
+	signal(SIGTSTP, sigstop_case);
 	signal(SIGINT, exit_properly);
 	signal(SIGWINCH, sigwinch_case);
 }

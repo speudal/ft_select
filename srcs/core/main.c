@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:21:13 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:48:30 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int		init_term(char *term_type)
 	term.c_cc[VMIN] = 1;
 	term.c_cc[VTIME] = 0;
 	tcsetattr(0, TCSADRAIN, &term);
-	return (ret);
+	return (isatty(0) && isatty(1) ? ret : 0);
 }
 
 int				main(int ac, char **av)
@@ -63,5 +63,7 @@ int				main(int ac, char **av)
 			tputs(tc, 2, ft_putchar);
 		}
 	}
+	else
+		ft_putendl_fd("ft_select: usage: ft_select [arg1] [arg2] ...", 2);
 	return (0);
 }
