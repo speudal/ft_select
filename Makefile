@@ -6,15 +6,15 @@
 #    By: tduval <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/25 23:21:58 by tduval            #+#    #+#              #
-#    Updated: 2019/03/20 19:59:09 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/20 20:24:50 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	ft_select
 
-CC			=	clang
+CC			=	gcc
 
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -g
 
 SRCS		=	srcs/core/main.c		\
 				srcs/core/sighandler.c	\

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:50:44 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:21:13 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 static int		init_term(char *term_type)
 {
 	struct termios	term;
-	int	ret;
+	int				ret;
 
 	if ((ret = tgetent(0, term_type)) == -1)
 	{
