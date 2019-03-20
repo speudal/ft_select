@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:48:30 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:59:02 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ static int		init_term(char *term_type)
 	}
 	else if (ret == 0)
 	{
-		 ft_putstr_fd("Terminal undefined in termcap database (or have too few informations).\n", 2);	
-		 return (-1);
+		ft_putendl_fd("Terminal undefined in termcap database.", 2);
+		return (-1);
 	}
 	tcgetattr(0, &term);
 	term.c_lflag &= ~(ICANON);

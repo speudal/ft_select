@@ -6,14 +6,14 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/13 20:56:40 by tduval            #+#    #+#             */
-/*   Updated: 2018/12/12 13:37:02 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:57:35 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include "libft.h"
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include "libft.h"
 
 static int	free_all(char *cpy, char *line)
 {

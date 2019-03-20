@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:58:30 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:29:40 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 21:00:38 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ static int	num_lins(int pec[3])
 		g_lst = g_lst->next;
 		i++;
 	}
-	return ((i + i % pec[2])/ (pec[2]));
+	return ((i + i % pec[2]) / (pec[2]));
 }
 
 void		print_list(void)
 {
 	struct winsize	si;
-	int		pec[3];
-	char	*tc;
+	int				pec[3];
+	char			*tc;
 
 	tc = tgetstr("cl", 0);
 	tputs(tc, 2, ft_putchar);

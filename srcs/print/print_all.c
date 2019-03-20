@@ -6,13 +6,13 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 15:23:32 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 18:13:11 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:59:21 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/ioctl.h>
 #include "ft_select.h"
-#include  "libft.h"
+#include "libft.h"
 
 extern t_args	*g_lst;
 
@@ -44,7 +44,7 @@ static void	ft_printcur(t_args *g_lst, int pec[3])
 		print_padding(g_lst->arg, pec[1]);
 }
 
-void			print_all(void)
+void		print_all(void)
 {
 	int		pec[3];
 	int		i;

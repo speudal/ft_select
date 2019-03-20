@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:44:55 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 20:58:46 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	sigstop_case(int a)
 	ioctl(2, TIOCSTI, "\x1A");
 }
 
-void	sighandler(void)
+void		sighandler(void)
 {
 	signal(SIGTSTP, sigstop_case);
 	signal(SIGINT, exit_properly);
