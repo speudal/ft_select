@@ -6,7 +6,7 @@
 #    By: tduval <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/25 23:21:58 by tduval            #+#    #+#              #
-#    Updated: 2019/03/20 17:43:20 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/20 19:59:09 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ CC			=	clang
 
 CFLAGS		=	-Wall -Werror -Wextra
 
-SRCS		=	srcs/main.c				\
+SRCS		=	srcs/core/main.c		\
+				srcs/core/sighandler.c	\
+				srcs/core/ft_select.c	\
 				srcs/keys/inter_keys.c	\
 				srcs/keys/updown_keys.c	\
-				srcs/deter_col.c		\
-				srcs/print_list.c		\
-				srcs/print_all.c		\
-				srcs/sighandler.c		\
-				srcs/ft_select.c
+				srcs/print/print_list.c	\
+				srcs/print/print_all.c	\
+				srcs/calcs/deter_col.c
 
 INCLUDES	=	-I . -I libft/
 
