@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/18 18:37:23 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 15:24:28 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,32 +65,6 @@ static t_args	*init_selec(int ac, char **av)
 	g_lst->next = origin;
 	origin->prev = g_lst;
 	return (origin);
-}
-
-void	print_all(void)
-{
-	while (g_lst->head == false)
-		g_lst = g_lst->next;
-	if (g_lst)
-	{
-		if (g_lst->cur == true)
-			ft_putstr_fd("\e[4m", 2);
-		if (g_lst->selected == true)
-			ft_putstr_fd("\e[7m", 2);
-		ft_putendl_fd(g_lst->arg, 2);
-		ft_putstr_fd("\e[0m", 2);
-		g_lst = g_lst->next;
-	}
-	while (g_lst && g_lst->head == false)
-	{
-		if (g_lst->cur == true)
-			ft_putstr_fd("\e[4m", 2);
-		if (g_lst->selected == true)
-			ft_putstr_fd("\e[7m", 2);
-		ft_putendl_fd(g_lst->arg, 2);
-		ft_putstr_fd("\e[0m", 2);
-		g_lst = g_lst->next;
-	}
 }
 
 void			print_selec(void)
