@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 17:29:20 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 19:14:40 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 19:54:45 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,11 @@ int			down_case(void)
 
 	pec[0] = number_args();
 	deter_col(pec);
-	i = pec[0] % pec[2];
+	i = 0;
 	while (g_lst->cur == false)
 		g_lst = g_lst->next;
 	g_lst->cur = false;
-	while (pec[0] / pec[2] > 0
-			&& i < (pec[0] / (pec[0] / pec[2]))
-			&& g_lst->next && g_lst->next->head == false)
+	while (i < pec[2] && g_lst->next->head == false)
 	{
 		g_lst = g_lst->next;
 		i++;
@@ -59,13 +57,11 @@ int			up_case(void)
 
 	pec[0] = number_args();
 	deter_col(pec);
-	i = pec[0] % pec[2];
+	i = 0;
 	while (g_lst->cur == false)
 		g_lst = g_lst->next;
 	g_lst->cur = false;
-	while (pec[0] / pec[2] > 0
-			&& i < (pec[0] / (pec[0] / pec[2]))
-		 	&& g_lst->head == false)
+	while (i < pec[2] && g_lst->head == false)
 	{
 		g_lst = g_lst->prev;
 		i++;
