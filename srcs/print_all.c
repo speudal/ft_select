@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 15:23:32 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:06:53 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:16:00 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,6 @@ static void	ft_printcur(t_args *g_lst, int pec[3])
 		ft_putchar('\n');
 	else
 		print_padding(g_lst->arg, pec[1]);
-}
-
-static void	deter_col(int pec[3])
-{
-	struct winsize	win;
-	size_t			i;
-
-	while (g_lst->head == false)
-		g_lst = g_lst->next;
-	i = ft_strlen(g_lst->arg);
-	g_lst = g_lst->next;
-	while (g_lst->head == false)
-	{
-		if (ft_strlen(g_lst->arg) > i)
-			i = ft_strlen(g_lst->arg);
-		g_lst = g_lst->next;
-	}
-	ioctl(0, TIOCGWINSZ, &win);
-	pec[1] = i + 1;
-	pec[2] = ((int)(win.ws_col / i));
 }
 
 void			print_all(void)

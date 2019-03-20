@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:19:22 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/18 18:38:22 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:17:49 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ static int	space_case(void)
 
 int		inter_keys(char buf[5])
 {
-
 	if (ft_strequ(UP_ARROW, buf))
 		return (up_case());
 	if (ft_strequ(DOWN_ARROW, buf))

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/18 18:38:03 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:16:23 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct		s_args
 	struct s_args	*next;
 }					t_args;
 
+void				deter_col(int pec[3]);
 void				print_all(void);
 void				print_list(void);
 void				exit_properly(int a);

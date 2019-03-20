@@ -6,7 +6,7 @@
 #    By: tduval <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/25 23:21:58 by tduval            #+#    #+#              #
-#    Updated: 2019/03/20 15:24:39 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/20 17:16:57 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ CFLAGS		=	-Wall -Werror -Wextra
 
 SRCS		=	srcs/main.c				\
 				srcs/inter_keys.c		\
+				srcs/deter_col.c		\
 				srcs/print_list.c		\
 				srcs/print_all.c		\
 				srcs/sighandler.c		\
