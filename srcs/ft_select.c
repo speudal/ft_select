@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:19:12 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 18:41:30 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int				ft_select(int ac, char **av)
 		buf[c] = 0;
 		inter_keys(buf);
 		tc = tgetstr("cl", 0);
-		tputs(tc, 0, ft_putchar);
+		tputs(tc, 2, ft_putchar);
 		print_all();
 		ft_bzero(buf, c);
 		ft_putchar('\n');

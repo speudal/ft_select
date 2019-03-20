@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 15:23:32 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:16:00 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 18:13:11 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	print_padding(char *str, int e)
 		i++;
 	while (i < e)
 	{
-		ft_putchar(' ');
+		ft_putchar_fd(' ', 2);
 		i++;
 	}
 }
@@ -39,7 +39,7 @@ static void	ft_printcur(t_args *g_lst, int pec[3])
 	ft_putstr_fd(g_lst->arg, 2);
 	ft_putstr_fd("\e[0m", 2);
 	if (pec[0] && pec[2] && (pec[0] % pec[2] == 0))
-		ft_putchar('\n');
+		ft_putchar_fd('\n', 2);
 	else
 		print_padding(g_lst->arg, pec[1]);
 }

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/18 18:34:49 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:52:15 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		exit_properly(int a)
 	free(g_lst);
 	free(g_lst->arg);
 	tc = tgetstr("ve", 0);
-	tputs(tc, 1, ft_putchar);
+	tputs(tc, 2, ft_putchar);
 	exit(1);
 	(void)a;
 }

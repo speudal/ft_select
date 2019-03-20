@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:16:23 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:42:54 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void				print_all(void);
 void				print_list(void);
 void				exit_properly(int a);
 void				sighandler(void);
+int					up_case(void);
+int					down_case(void);
 int					ft_select(int ac, char **av);
 int					inter_keys(char buf[5]);
 

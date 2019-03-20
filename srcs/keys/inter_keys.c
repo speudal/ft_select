@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:19:22 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:17:49 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 18:47:27 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 extern	t_args	*g_lst;
 
-static int	up_case(void)
+static int	left_case(void)
 {
 	while (g_lst && g_lst->cur != true)
 		g_lst = g_lst->next;
@@ -28,7 +28,7 @@ static int	up_case(void)
 	return (0);
 }
 
-static int	down_case(void)
+static int	right_case(void)
 {
 	while (g_lst && g_lst->cur != true)
 		g_lst = g_lst->next;
@@ -74,6 +74,10 @@ int		inter_keys(char buf[5])
 		return (up_case());
 	if (ft_strequ(DOWN_ARROW, buf))
 		return (down_case());
+	if (ft_strequ(LEFT_ARROW, buf))
+		return (left_case());
+	if (ft_strequ(RIGHT_ARROW, buf))
+		return (right_case());
 	if (ft_strequ(DELETE, buf) || ft_strequ(BACKSPACE, buf))
 		return (del_case());
 	if (buf[0] == ' ')

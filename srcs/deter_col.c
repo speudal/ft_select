@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 17:15:10 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 17:17:30 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:55:27 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	deter_col(int pec[3])
 			i = ft_strlen(g_lst->arg);
 		g_lst = g_lst->next;
 	}
-	ioctl(0, TIOCGWINSZ, &win);
+	ioctl(2, TIOCGWINSZ, &win);
 	pec[1] = i + 1;
 	pec[2] = ((int)(win.ws_col / i));
 }

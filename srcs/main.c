@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/13 19:43:25 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:50:44 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ int				main(int ac, char **av)
 		if ((ret = init_term(term_type)))
 		{
 			tc = tgetstr("cl", 0);
-			tputs(tc, 1, ft_putchar);
+			tputs(tc, 2, ft_putchar);
 			tc = tgetstr("vi", 0);
-			tputs(tc, 1, ft_putchar);
+			tputs(tc, 2, ft_putchar);
 			ft_select(ac, av);
 			tc = tgetstr("ve", 0);
-			tputs(tc, 1, ft_putchar);
+			tputs(tc, 2, ft_putchar);
 		}
 	}
 	return (0);

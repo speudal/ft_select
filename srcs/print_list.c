@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:58:30 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 15:30:53 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/20 17:54:18 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void		print_list(void)
 	char	*tc;
 
 	tc = tgetstr("cl", 0);
-	tputs(tc, 0, ft_putchar);
-	ioctl(0, TIOCGWINSZ, &si);
+	tputs(tc, 2, ft_putchar);
+	ioctl(2, TIOCGWINSZ, &si);
 	if (si.ws_row < num_lins())
 		ft_putendl_fd("ERROR: PLEASE RESIZE THE WINDOW.\n", 2);
 	else
