@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 21:03:52 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/21 16:36:21 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static t_args	*init_selec(int ac, char **av)
 	return (origin);
 }
 
-void			print_selec(void)
+static void		print_selec(void)
 {
 	int		i;
 
@@ -89,6 +89,27 @@ void			print_selec(void)
 		}
 		g_lst = g_lst->next;
 	}
+}
+
+static int		end_game(void)
+{
+	char	*tc;
+	t_args	*tmp;
+
+	while (g_lst->prev->head == false)
+		g_lst = g_lst->next;
+	while (g_lst && g_lst->head == false)
+	{
+		tmp = g_lst;
+		free(tmp->arg);
+		free(tmp);
+		g_lst = g_lst->next;
+	}
+	free(g_lst);
+	free(g_lst->arg);
+	tc = tgetstr("ve", 0);
+	tputs(tc, 2, ft_putchar);
+	return (0);
 }
 
 int				ft_select(int ac, char **av)
@@ -116,6 +137,5 @@ int				ft_select(int ac, char **av)
 	}
 	if (ft_strequ(buf, RETURN))
 		print_selec();
-	exit_properly(21052016);
-	return (0);
+	return (end_game());
 }

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:58:46 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/21 16:32:44 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@ static void	sigwinch_case(int a)
 {
 	(void)a;
 	print_list();
+}
+
+static void	sigstop_case(int a)
+{
+	(void)a;
+	ioctl(2, TIOCSTI, "\x1A");
 }
 
 void		exit_properly(int a)
@@ -44,19 +50,17 @@ void		exit_properly(int a)
 	tputs(tc, 2, ft_putchar);
 	tc = tgetstr("te", 0);
 	tputs(tc, 2, ft_putchar);
-	exit(1);
+	exit(a == 31415 ? 0 : 1);
 	(void)a;
-}
-
-static void	sigstop_case(int a)
-{
-	(void)a;
-	ioctl(2, TIOCSTI, "\x1A");
 }
 
 void		sighandler(void)
 {
 	signal(SIGTSTP, sigstop_case);
 	signal(SIGINT, exit_properly);
+	signal(SIGHUP, exit_properly);
+	signal(SIGQUIT, exit_properly);
+	signal(SIGABRT, exit_properly);
+	signal(SIGTERM, exit_properly);
 	signal(SIGWINCH, sigwinch_case);
 }
