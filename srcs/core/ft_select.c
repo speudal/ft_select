@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/21 16:36:21 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/21 18:13:50 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int				ft_select(int ac, char **av)
 	char	buf[5];
 
 	sighandler();
-	if (ac < 2 || !(init_selec(ac, av)))
+	if (ac < 2 || (!g_lst && !(init_selec(ac, av))))
 		return (0);
 	print_list();
 	while ((c = read(0, buf, 4))

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/21 17:19:28 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/21 18:14:26 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include "ft_select.h"
 
-static int		init_term(char *term_type)
+void		init_term(char *term_type, int ac, char **av)
 {
 	struct termios	term;
 	int				ret;
@@ -23,26 +23,24 @@ static int		init_term(char *term_type)
 	if ((ret = tgetent(0, term_type)) == -1)
 	{
 		ft_putstr_fd("Couldn't access to database.\n", 2);
-		return (-1);
+		return ;
 	}
 	else if (ret == 0)
 	{
 		ft_putendl_fd("Terminal undefined in termcap database.", 2);
-		return (-1);
+		return ;
 	}
-	tcgetattr(0, &term);
+	tcgetattr(2, &term);
 	term.c_lflag &= ~(ICANON);
 	term.c_lflag &= ~(ECHO);
 	term.c_cc[VMIN] = 1;
 	term.c_cc[VTIME] = 0;
-	tcsetattr(0, TCSADRAIN, &term);
-	return (ret);
+	tcsetattr(2, TCSADRAIN, &term);
+	ret = ft_select(ac, av);
 }
 
 int				main(int ac, char **av)
 {
-	int		ret;
-	char	*tc;
 	char	*term_type;
 
 	if (ac > 1)
@@ -52,16 +50,7 @@ int				main(int ac, char **av)
 			ft_putstr_fd("ERROR: TERM variable not set.\n", 2);
 			return (-1);
 		}
-		if ((ret = init_term(term_type)))
-		{
-			tc = tgetstr("cl", 0);
-			tputs(tc, 2, ft_putchar);
-			tc = tgetstr("vi", 0);
-			tputs(tc, 2, ft_putchar);
-			ft_select(ac, av);
-			tc = tgetstr("ve", 0);
-			tputs(tc, 2, ft_putchar);
-		}
+		init_term(term_type, ac, av);
 	}
 	else
 		ft_putendl_fd("ft_select: usage: ft_select [arg1] [arg2] ...", 2);
