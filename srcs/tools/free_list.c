@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 17:50:53 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/22 18:01:14 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/22 19:27:17 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,16 @@ void			free_list(void)
 {
 	t_args	*tmp;
 
-	while (g_lst->prev->head == false)
-		g_lst = g_lst->next;
-	while (g_lst && g_lst->head == false)
+	if (g_lst)
 	{
-		tmp = g_lst;
-		free(tmp->arg);
-		free(tmp);
-		g_lst = g_lst->next;
+		while (g_lst->prev->head == false)
+			g_lst = g_lst->next;
+		while (g_lst && g_lst->next && g_lst->head == false)
+		{
+			tmp = g_lst;
+			g_lst = g_lst->next;
+			free(tmp->arg);
+			free(tmp);
+		}
 	}
-	free(g_lst);
-	free(g_lst->arg);
 }
