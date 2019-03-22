@@ -6,7 +6,7 @@
 /*   By: tduval <tduval@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 22:03:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/02/25 23:50:41 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/22 18:52:27 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int		ft_putchar(int c)
 	char	a;
 
 	a = (char)c;
-	return ((int)write(1, &a, 1));
+	return ((int)write(2, &a, 1));
 }
