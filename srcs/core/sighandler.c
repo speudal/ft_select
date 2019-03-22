@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/21 18:07:14 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/22 18:22:43 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,32 +35,17 @@ static void	sigtstp_case(int a)
 static void	sigcont_case(int a)
 {
 	(void)a;
-	init_term(0, 3, 0);
+	init_term();
+	print_list();
 	signal(SIGCONT, SIG_DFL);
 }
 
 void		exit_properly(int a)
 {
-	char	*tc;
-	t_args	*tmp;
-
 	(void)a;
-	while (g_lst->prev->head == false)
-		g_lst = g_lst->next;
-	while (g_lst && g_lst->head == false)
-	{
-		tmp = g_lst;
-		free(tmp->arg);
-		free(tmp);
-		g_lst = g_lst->next;
-	}
-	free(g_lst);
-	free(g_lst->arg);
-	tc = tgetstr("ve", 0);
-	tputs(tc, 2, ft_putchar);
-	tc = tgetstr("te", 0);
-	tputs(tc, 2, ft_putchar);
-	exit(a == 314159 ? 0 : 1);
+	free_list();
+	tputs(tgetstr("ve", 0), 2, ft_putchar);
+	exit(1);
 }
 
 void		sighandler(void)

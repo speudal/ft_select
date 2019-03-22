@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/21 18:13:50 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/22 18:07:47 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static t_args	*init_selec(int ac, char **av)
 	return (origin);
 }
 
-static void		print_selec(void)
+static void		print_select(void)
 {
 	int		i;
 
@@ -91,24 +91,12 @@ static void		print_selec(void)
 	}
 }
 
-static int		end_game(void)
+static int		end_game(char buf[5])
 {
-	char	*tc;
-	t_args	*tmp;
-
-	while (g_lst->prev->head == false)
-		g_lst = g_lst->next;
-	while (g_lst && g_lst->head == false)
-	{
-		tmp = g_lst;
-		free(tmp->arg);
-		free(tmp);
-		g_lst = g_lst->next;
-	}
-	free(g_lst);
-	free(g_lst->arg);
-	tc = tgetstr("ve", 0);
-	tputs(tc, 2, ft_putchar);
+	if (ft_strequ(buf, RETURN))
+		print_select();
+	free_list();
+	tputs(tgetstr("ve", 0), 2, ft_putchar);
 	return (0);
 }
 
@@ -127,6 +115,7 @@ int				ft_select(int ac, char **av)
 	{
 		buf[c] = 0;
 		inter_keys(buf);
+		tputs(tgetstr("vi", 0), 2, ft_putchar);
 		tc = tgetstr("cl", 0);
 		tputs(tc, 2, ft_putchar);
 		tc = tgetstr("ti", 0);
@@ -135,7 +124,5 @@ int				ft_select(int ac, char **av)
 		ft_bzero(buf, c);
 		ft_putchar('\n');
 	}
-	if (ft_strequ(buf, RETURN))
-		print_selec();
-	return (end_game());
+	return (end_game(buf));
 }

@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/21 18:08:55 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/22 18:20:18 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void				print_all(void);
 void				print_list(void);
 void				exit_properly(int a);
 void				sighandler(void);
-void				init_term(char *term_type, int ac, char **av);
+void				init_term(void);
+void				free_list(void);
 int					main(int ac, char **av);
 int					up_case(void);
 int					down_case(void);

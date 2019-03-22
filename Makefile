@@ -6,7 +6,7 @@
 #    By: tduval <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/25 23:21:58 by tduval            #+#    #+#              #
-#    Updated: 2019/03/20 20:24:50 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/22 18:12:31 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ SRCS		=	srcs/core/main.c		\
 				srcs/keys/updown_keys.c	\
 				srcs/print/print_list.c	\
 				srcs/print/print_all.c	\
+				srcs/tools/free_list.c	\
+				srcs/tools/init_term.c	\
 				srcs/calcs/deter_col.c
 
 INCLUDES	=	-I . -I libft/
