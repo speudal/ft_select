@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/22 18:07:47 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/22 18:59:55 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void		print_select(void)
 		if (g_lst->selected == true)
 		{
 			if (i)
-				ft_putchar(' ');
+				ft_putstr(" ");
 			ft_putstr(g_lst->arg);
 			i = 1;
 		}
