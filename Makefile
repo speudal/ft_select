@@ -16,7 +16,7 @@ CC			=	gcc
 
 HEADER		=	./ft_select.h
 
-CFLAGS		=	-Wall -Werror -Wextra -g
+CFLAGS		=	-Wall -Werror -Wextra
 
 SRCS		=	srcs/core/main.c		\
 				srcs/core/sighandler.c	\
