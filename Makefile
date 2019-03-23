@@ -14,6 +14,8 @@ NAME		=	ft_select
 
 CC			=	gcc
 
+HEADER		=	./ft_select.h
+
 CFLAGS		=	-Wall -Werror -Wextra -g
 
 SRCS		=	srcs/core/main.c		\
@@ -35,7 +37,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS)
+$(NAME) : $(LIBFT) $(OBJS) $(HEADER)
 	@$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) $(LIBFT) -o $(NAME) -ltermcap
 	@echo "\x1b[36m[FT_SELECT COMPILED]\x1b[0m"
 
