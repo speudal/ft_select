@@ -6,10 +6,11 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:58:30 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 21:00:38 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:27:13 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <termcap.h>
 #include <sys/ioctl.h>
 #include "libft.h"
 #include "ft_select.h"

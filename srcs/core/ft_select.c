@@ -6,10 +6,11 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/23 19:28:26 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:27:02 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <termcap.h>
 #include <signal.h>
 #include <stdlib.h>
 #include <unistd.h>

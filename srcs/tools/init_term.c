@@ -6,12 +6,13 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 18:08:10 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/23 19:58:03 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:27:34 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <termios.h>
+#include <termcap.h>
 #include "libft.h"
-#include "ft_select.h"
 
 struct termios	g_rep;
 

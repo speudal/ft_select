@@ -6,16 +6,13 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/23 19:50:13 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:23:08 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SELECT_H
 
 # define FT_SELECT_H
-
-# include <termcap.h>
-# include <termios.h>
 
 # define RETURN			"\xa"
 # define BACKSPACE		"\x7f"
