@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:16:09 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:22:23 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ static void	sigtstp_case(int a)
 	reset_term();
 	while (i < 32)
 	{
-		signal(i, SIG_DFL);
+		if (i != 9 && i != SIGCONT)
+			signal(i, SIG_DFL);
 		i++;
 	}
 	ioctl(2, TIOCSTI, "\x1A");
