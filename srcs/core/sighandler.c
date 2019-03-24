@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 19:30:53 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:16:09 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@ static void	sigwinch_case(int a)
 
 static void	sigtstp_case(int a)
 {
+	int		i;
+
+	i = 1;
 	(void)a;
 	reset_term();
-	signal(SIGTSTP, SIG_DFL);
-	signal(SIGTERM, SIG_DFL);
-    signal(SIGINT, SIG_DFL);
-    signal(SIGHUP, SIG_DFL);
-    signal(SIGQUIT, SIG_DFL);
-    signal(SIGABRT, SIG_DFL);
-    signal(SIGWINCH, SIG_DFL);
+	while (i < 32)
+	{
+		signal(i, SIG_DFL);
+		i++;
+	}
 	ioctl(2, TIOCSTI, "\x1A");
 }
 
@@ -52,17 +53,21 @@ void		exit_properly(int a)
 	(void)a;
 	free_list();
 	reset_term();
-	exit(a);
+	exit(1);
 }
 
 void		sighandler(void)
 {
+	int		i;
+
+	i = 1;
+	while (i < 32)
+	{
+		if (i != 9)
+			signal(i, exit_properly);
+		i++;
+	}
 	signal(SIGTSTP, sigtstp_case);
 	signal(SIGCONT, sigcont_case);
-	signal(SIGTERM, exit_properly);
-	signal(SIGINT, exit_properly);
-	signal(SIGHUP, exit_properly);
-	signal(SIGQUIT, exit_properly);
-	signal(SIGABRT, exit_properly);
 	signal(SIGWINCH, sigwinch_case);
 }
