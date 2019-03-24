@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:25:47 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:29:15 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		check_term(char *term_type)
 {
 	int				ret;
 
-	if ((ret = tgetent(0, term_type)) == -1 
+	if ((ret = tgetent(0, term_type)) == -1
 			|| tgetstr("cl", 0) == 0
 			|| tgetstr("vi", 0) == 0)
 	{
