@@ -6,7 +6,7 @@
 #    By: tduval <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/25 23:21:58 by tduval            #+#    #+#              #
-#    Updated: 2019/03/24 20:37:27 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/24 20:39:07 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRCS		=	srcs/core/main.c		\
 				srcs/tools/init_term.c	\
 				srcs/calcs/deter_col.c
 
-INCLUDES	=	-I . -I libft/
+CPPFLAGS	=	-I . -I libft/
 
 LIBFT		=	libft/libft.a
 
@@ -39,13 +39,13 @@ OBJS		=	$(SRCS:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS) $(HEADER)
-	@$(CC) $(CFLAGS) $(OBJS) $(INCLUDES) $(LIBFT) -o $(NAME) -ltermcap
+	@$(CC) $(CFLAGS) $(OBJS) $(CPPFLAGS) $(LIBFT) -o $(NAME) -ltermcap
 	@echo "\x1b[36m<=========== FT_SELECT COMPILED ===========>\x1b[0m"
 
 %.o : %.c
 	@printf "\x1b[33;01mPre-compiling : \x1b[0m"
 	@echo $<
-	@$(CC) -c $(CFLAGS) $(INCLUDES) $< -o $@
+	@$(CC) -c $(CFLAGS) $(CPPFLAGS) $< -o $@
 
 $(LIBFT) :
 	@$(MAKE) -C libft/
