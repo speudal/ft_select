@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:22:23 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/24 20:28:55 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ static void	sigcont_case(int a)
 	(void)a;
 	init_term();
 	print_list();
-	signal(SIGCONT, SIG_DFL);
 	sighandler();
 }
 

@@ -6,11 +6,13 @@
 #    By: tduval <tduval@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/22 13:08:51 by tduval            #+#    #+#              #
-#    Updated: 2019/03/23 19:54:41 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/24 20:36:51 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	libft.a
+
+CC		=	gcc
 
 CFLAGS	=	-Wall -Werror -Wextra -I.
 
@@ -87,20 +89,20 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "\x1b[36m[LIBFT COMPILED]\x1b[0m"
+	@echo "\x1b[36m<=========== LIBFT COMPILED ===========>\x1b[0m"
 
 clean :
 	@rm -f $(OBJS)
-	@echo "\x1b[33;01mlibft : cleaning...\x1b[0m"
-	@echo "\x1b[32;01m[LIBFT CLEANED]\x1b[0m"
+	@echo "\x1b[32;01m<=========== LIBFT CLEANED ===========>\x1b[0m"
 
 fclean : clean
 	@rm -f $(NAME)
-	@echo "\x1b[33;01mlibft : fcleaning...\x1b[0m"
-	@echo "\x1b[32;01m[LIBFT FCLEANED]\x1b[0m"
+	@echo "\x1b[32;01m<=========== LIBFT FCLEANED ===========>\x1b[0m"
 
 %.o : %.c
-	@gcc -c $(CFLAGS) $< -o $@
+	@printf "\x1b[33;01mPre-compiling : \x1b[0m"
+	@echo $<
+	@$(CC) -c $(CFLAGS) $< -o $@
 
 re : fclean all
 
