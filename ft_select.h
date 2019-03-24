@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/22 18:20:18 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/23 19:50:13 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void				exit_properly(int a);
 void				sighandler(void);
 void				init_term(void);
 void				free_list(void);
+void				reset_term(void);
 int					main(int ac, char **av);
 int					up_case(void);
 int					down_case(void);

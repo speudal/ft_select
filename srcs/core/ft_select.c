@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/22 18:59:55 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/23 19:28:26 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,15 +110,13 @@ int				ft_select(int ac, char **av)
 	if (ac < 2 || (!g_lst && !(init_selec(ac, av))))
 		return (0);
 	print_list();
+	ft_bzero(buf, 5);
 	while ((c = read(0, buf, 4))
 			&& ft_strcmp(buf, ESC) && ft_strcmp(buf, RETURN))
 	{
 		buf[c] = 0;
 		inter_keys(buf);
-		tputs(tgetstr("vi", 0), 2, ft_putchar);
 		tc = tgetstr("cl", 0);
-		tputs(tc, 2, ft_putchar);
-		tc = tgetstr("ti", 0);
 		tputs(tc, 2, ft_putchar);
 		print_list();
 		ft_bzero(buf, c);

@@ -6,7 +6,7 @@
 #    By: tduval <tduval@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/22 13:08:51 by tduval            #+#    #+#              #
-#    Updated: 2018/12/12 13:38:10 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/23 19:54:41 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,7 @@ NAME	=	libft.a
 
 CFLAGS	=	-Wall -Werror -Wextra -I.
 
-SRCS	=	./srcs/dispatcher.c		\
-			./srcs/fill_flags.c		\
-			./srcs/ft_abs.c			\
+SRCS	=	./srcs/ft_abs.c			\
 			./srcs/ft_atoi.c		\
 			./srcs/ft_bzero.c		\
 			./srcs/ft_factorial.c	\
@@ -40,7 +38,6 @@ SRCS	=	./srcs/dispatcher.c		\
 			./srcs/ft_memdel.c		\
 			./srcs/ft_memmove.c		\
 			./srcs/ft_memset.c		\
-			./srcs/ft_printf.c		\
 			./srcs/ft_putchar.c		\
 			./srcs/ft_putchar_fd.c	\
 			./srcs/ft_putendl.c		\
@@ -82,47 +79,7 @@ SRCS	=	./srcs/dispatcher.c		\
 			./srcs/ft_swap.c		\
 			./srcs/ft_tolower.c		\
 			./srcs/ft_toupper.c		\
-			./srcs/get_next_line.c	\
-			./srcs/get_flags.c		\
-			./srcs/padding_bx.c		\
-			./srcs/padding_d.c		\
-			./srcs/padding_o.c		\
-			./srcs/padding_sx.c		\
-			./srcs/padding_u.c		\
-			./srcs/print_bx.c		\
-			./srcs/print_c.c		\
-			./srcs/print_d.c		\
-			./srcs/print_hbx.c		\
-			./srcs/print_hd.c		\
-			./srcs/print_hhbx.c		\
-			./srcs/print_hhd.c		\
-			./srcs/print_hhi.c		\
-			./srcs/print_hho.c		\
-			./srcs/print_hhsx.c		\
-			./srcs/print_hhu.c		\
-			./srcs/print_hi.c		\
-			./srcs/print_ho.c		\
-			./srcs/print_hsx.c		\
-			./srcs/print_hu.c		\
-			./srcs/print_i.c		\
-			./srcs/print_lbx.c		\
-			./srcs/print_ld.c		\
-			./srcs/print_li.c		\
-			./srcs/print_llbx.c		\
-			./srcs/print_lld.c		\
-			./srcs/print_lli.c		\
-			./srcs/print_llo.c		\
-			./srcs/print_llsx.c		\
-			./srcs/print_llu.c		\
-			./srcs/print_lo.c		\
-			./srcs/print_lsx.c		\
-			./srcs/print_lu.c		\
-			./srcs/print_o.c		\
-			./srcs/print_p.c		\
-			./srcs/print_per.c		\
-			./srcs/print_s.c		\
-			./srcs/print_sx.c		\
-			./srcs/print_u.c
+			./srcs/get_next_line.c
 
 OBJS =	$(SRCS:.c=.o)
 

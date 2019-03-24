@@ -6,7 +6,7 @@
 #    By: tduval <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/25 23:21:58 by tduval            #+#    #+#              #
-#    Updated: 2019/03/22 18:12:31 by tduval           ###   ########.fr        #
+#    Updated: 2019/03/24 19:39:14 by tduval           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ CC			=	gcc
 
 HEADER		=	./ft_select.h
 
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra -g
 
 SRCS		=	srcs/core/main.c		\
 				srcs/core/sighandler.c	\
+				srcs/core/reset_term.c	\
 				srcs/core/ft_select.c	\
 				srcs/keys/inter_keys.c	\
 				srcs/keys/updown_keys.c	\

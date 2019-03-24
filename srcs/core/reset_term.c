@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_i.c                                          :+:      :+:    :+:   */
+/*   reset_term.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tduval <tduval@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/26 22:42:30 by tduval            #+#    #+#             */
-/*   Updated: 2018/11/27 16:58:51 by tduval           ###   ########.fr       */
+/*   Created: 2019/03/23 19:31:06 by tduval            #+#    #+#             */
+/*   Updated: 2019/03/23 19:57:42 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_select.h"
 
-int		print_i(va_list ap, t_flags elem)
+extern struct termios	g_rep;
+
+void	reset_term(void)
 {
-	return (print_d(ap, elem));
+	tputs(tgetstr("ve", 0), 2, ft_putchar);
+	tcsetattr(2, TCSANOW, &g_rep);
 }
