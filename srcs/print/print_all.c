@@ -6,11 +6,10 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 15:23:32 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/20 20:59:21 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/28 19:54:40 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/ioctl.h>
 #include "ft_select.h"
 #include "libft.h"
 
