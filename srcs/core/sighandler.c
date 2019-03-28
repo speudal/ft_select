@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 17:00:04 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:28:55 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/28 19:52:43 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <sys/ioctl.h>
 #include "ft_select.h"
-#include "libft.h"
 
 extern t_args	*g_lst;
 
