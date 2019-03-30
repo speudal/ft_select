@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:29:15 by tduval           ###   ########.fr       */
+/*   Updated: 2019/03/30 12:42:07 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ int				main(int ac, char **av)
 	}
 	else
 		ft_putendl_fd("ft_select: usage: ft_select [arg1] [arg2] ...", 2);
+	reset_term();
 	return (0);
 }
