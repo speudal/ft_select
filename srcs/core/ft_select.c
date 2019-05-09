@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:27:02 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:41:17 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static void		print_select(void)
 
 static int		end_game(char buf[5])
 {
-	if (ft_strequ(buf, RETURN))
+	if (buf[0] == '\n')
 		print_select();
 	free_list();
 	tputs(tgetstr("ve", 0), 2, ft_putchar);
@@ -103,7 +103,6 @@ static int		end_game(char buf[5])
 
 int				ft_select(int ac, char **av)
 {
-	char	*tc;
 	int		c;
 	char	buf[5];
 
@@ -113,12 +112,11 @@ int				ft_select(int ac, char **av)
 	print_list();
 	ft_bzero(buf, 5);
 	while ((c = read(0, buf, 4))
-			&& ft_strcmp(buf, ESC) && ft_strcmp(buf, RETURN))
+			&& ft_strcmp(buf, "\x1b") && buf[0] != '\n')
 	{
 		buf[c] = 0;
 		inter_keys(buf);
-		tc = tgetstr("cl", 0);
-		tputs(tc, 2, ft_putchar);
+		tputs(tgetstr("cl", 0), 2, ft_putchar);
 		print_list();
 		ft_bzero(buf, c);
 		ft_putchar('\n');

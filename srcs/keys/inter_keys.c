@@ -6,10 +6,11 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:19:22 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 19:35:35 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:31:49 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "termcap.h"
 #include "libft.h"
 #include "ft_select.h"
 
@@ -81,7 +82,7 @@ int			inter_keys(char buf[5])
 		return (left_case());
 	if (ft_strequ(RIGHT_ARROW, buf))
 		return (right_case());
-	if (ft_strequ(DELETE, buf) || ft_strequ(BACKSPACE, buf))
+	if (buf[0] == 127 || ft_strequ(buf, tgetstr("kD", 0)))
 		return (del_case());
 	if (buf[0] == ' ')
 		return (space_case());

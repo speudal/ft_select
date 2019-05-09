@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:23:08 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:31:57 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 # define FT_SELECT_H
 
-# define RETURN			"\xa"
-# define BACKSPACE		"\x7f"
-# define ESC			"\x1b"
 # define UP_ARROW		"\x1b[A"
 # define DOWN_ARROW		"\x1b[B"
 # define RIGHT_ARROW	"\x1b[C"
