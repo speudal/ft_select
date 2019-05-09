@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/30 12:42:07 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:45:55 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ static int		check_term(char *term_type)
 
 	if ((ret = tgetent(0, term_type)) == -1
 			|| tgetstr("cl", 0) == 0
-			|| tgetstr("vi", 0) == 0)
+			|| tgetstr("vi", 0) == 0
+			|| tgetstr("kd", 0) == 0
+			|| tgetstr("ku", 0) == 0
+			|| tgetstr("kl", 0) == 0
+			|| tgetstr("kr", 0) == 0
+			|| tgetstr("kD", 0) == 0)
 	{
 		ft_putstr_fd("Couldn't access to database.\n", 2);
 		return (-1);

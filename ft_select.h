@@ -6,19 +6,13 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/25 23:26:49 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/09 13:31:57 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 13:44:10 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_SELECT_H
 
 # define FT_SELECT_H
-
-# define UP_ARROW		"\x1b[A"
-# define DOWN_ARROW		"\x1b[B"
-# define RIGHT_ARROW	"\x1b[C"
-# define LEFT_ARROW		"\x1b[D"
-# define DELETE			"\x1b[3~"
 
 typedef enum		e_bool
 {

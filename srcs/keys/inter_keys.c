@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/14 18:19:22 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/09 13:31:49 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 14:12:59 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,15 @@ static int	space_case(void)
 	return (0);
 }
 
-int			inter_keys(char buf[5])
+int			inter_keys(char buf[4])
 {
-	if (ft_strequ(UP_ARROW, buf))
+	if (ft_strequ(tgetstr("ku", 0), buf))
 		return (up_case());
-	if (ft_strequ(DOWN_ARROW, buf))
+	if (ft_strequ(tgetstr("kd", 0), buf))
 		return (down_case());
-	if (ft_strequ(LEFT_ARROW, buf))
+	if (ft_strequ(tgetstr("kl", 0), buf))
 		return (left_case());
-	if (ft_strequ(RIGHT_ARROW, buf))
+	if (ft_strequ(tgetstr("kr", 0), buf))
 		return (right_case());
 	if (buf[0] == 127 || ft_strequ(buf, tgetstr("kD", 0)))
 		return (del_case());
