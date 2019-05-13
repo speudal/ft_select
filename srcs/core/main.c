@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/13 12:34:26 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/13 13:40:09 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ int				main(int ac, char **av)
 				ft_putstr_fd("ERROR: TERM variable not set.\n", 2);
 			return (-1);
 		}
+		ft_putstr_fd("\033[?1049h\033[H", 2);
 		init_term();
 		ft_select(ac, av);
 	}
 	else
 		ft_putendl_fd("ft_select: usage: ft_select [arg1] [arg2] ...", 2);
-	reset_term();
 	return (0);
 }

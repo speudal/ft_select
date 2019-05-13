@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/09 14:13:16 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/13 13:40:03 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ static void		print_select(void)
 
 static int		end_game(char buf[5])
 {
+	reset_term();
 	if (buf[0] == '\n')
 		print_select();
 	free_list();
