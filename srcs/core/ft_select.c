@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/25 23:56:26 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/13 13:40:03 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/13 14:30:59 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,14 +105,14 @@ static int		end_game(char buf[5])
 int				ft_select(int ac, char **av)
 {
 	int		c;
-	char	buf[4];
+	char	buf[5];
 
 	sighandler();
 	if (ac < 2 || (!g_lst && !(init_selec(ac, av))))
 		return (0);
 	print_list();
-	ft_bzero(buf, 4);
-	while ((c = read(0, buf, 3))
+	ft_bzero(buf, 5);
+	while ((c = read(0, buf, 4))
 			&& ft_strcmp(buf, "\x1b") && buf[0] != '\n')
 	{
 		buf[c] = 0;
