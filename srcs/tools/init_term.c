@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/22 18:08:10 by tduval            #+#    #+#             */
-/*   Updated: 2019/03/24 20:27:34 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/13 12:32:41 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,5 @@ void			init_term(void)
 	tcsetattr(2, TCSADRAIN, &term);
 	tputs(tgetstr("cl", 0), 2, ft_putchar);
 	tputs(tgetstr("vi", 0), 2, ft_putchar);
+	tputs(tgetstr("ks", 0), 2, ft_putchar);
 }

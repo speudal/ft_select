@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 15:23:32 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/09 14:11:16 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/09 16:24:14 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static void	print_padding(char *str, int e)
 static void	ft_printcur(t_args *g_lst, int pec[3])
 {
 	if (g_lst->cur == true)
-		tputs(tgetstr("mr", 0), 2, ft_putchar);
-	if (g_lst->selected == true)
 		tputs(tgetstr("us", 0), 2, ft_putchar);
+	if (g_lst->selected == true)
+		tputs(tgetstr("mr", 0), 2, ft_putchar);
 	ft_putstr_fd(g_lst->arg, 2);
 	tputs(tgetstr("ue", 0), 2, ft_putchar);
 	tputs(tgetstr("se", 0), 2, ft_putchar);

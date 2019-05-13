@@ -6,7 +6,7 @@
 /*   By: tduval <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/12 11:11:08 by tduval            #+#    #+#             */
-/*   Updated: 2019/05/09 13:45:55 by tduval           ###   ########.fr       */
+/*   Updated: 2019/05/13 12:34:26 by tduval           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ static int		check_term(char *term_type)
 			|| tgetstr("cl", 0) == 0
 			|| tgetstr("vi", 0) == 0
 			|| tgetstr("kd", 0) == 0
+			|| tgetstr("ke", 0) == 0
+			|| tgetstr("ks", 0) == 0
 			|| tgetstr("ku", 0) == 0
 			|| tgetstr("kl", 0) == 0
 			|| tgetstr("kr", 0) == 0
